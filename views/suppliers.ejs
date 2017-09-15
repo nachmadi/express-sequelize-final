@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<%- include partial/header %>
+<body>
+  <%-include partial/menu%>
+  <div class="container">
+      <h2>Suppliers Data</h2>
+      <h3><a href='/suppliers/add'>Add User</a><h3>
+      <table class="table" cellpading="0" cellspacing="0">
+        <tr>
+          <th>ID</th>
+          <th>NAMA</th>
+          <th>KOTA</th>
+          <th>Option</th>
+        </tr>
+
+        <% suppliers.forEach (data =>{%>
+          <tr>
+            <td>&nbsp<%=data.id %></td>
+            <td>&nbsp<%=data.nama%></td>
+            <td>&nbsp<%=data.kota%></td>
+            <td><a href="/suppliers/edit/<%= data.id %>">Edit</a>|<a href="/suppliers/delete/<%= data.id %>">Delete</a></td>
+          </tr>
+          <% }) %>
+      </table>
+    </div>
+</body>
+</html>

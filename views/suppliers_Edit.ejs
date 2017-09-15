@@ -1,0 +1,23 @@
+<html>
+<%- include partial/header %>
+<body>
+  <%-include partial/menu%>
+  <div class="container">
+      <h2>Tambah Barang</h2>
+      <h3><a href="/suppliers">Show All Data</a></h3>
+
+          <form action="/suppliers/edit/<%=supplier.id%>" method="post">
+          <div>
+            <label><b>Nama supplier<b></label><br>
+            <input type="text" name="name" value= "<%=supplier.name%>" placeholder="Nama Supplier">
+          </div>
+          <div>
+            <label><b>Kota<b></label><br>
+            <input type="text" name="kota" value= "<%=supplier.kota%>" placeholder="Kota">
+          </div>
+
+          <button type="submit" name="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>
