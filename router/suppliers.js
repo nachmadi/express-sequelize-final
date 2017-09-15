@@ -7,7 +7,7 @@ let models = require('../models');
 router.get('/inst',(req, res)=>{
    models.SupplierItem.create(
         {SupplierId:1,
-         itemId: 1,
+         itemId: 3,
          price: 20}
        )
       .then(allSupplier => {
@@ -95,5 +95,10 @@ router.post('/edit/:id',(req, res)=>{
     res.send({error:error.stack});
   })
 })
+
+router.get('/edit/:id/additem',(req, res)=>{
+    res.render('suppliers_Add_Item',{supplier:supplier});
+})
+
 
 module.exports = router;

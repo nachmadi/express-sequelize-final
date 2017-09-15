@@ -11,6 +11,8 @@
           <th>ID</th>
           <th>NAMA</th>
           <th>KOTA</th>
+          <th>LIST ITEM</th>
+          <th>ADD ITEM</th>
           <th>Option</th>
         </tr>
 
@@ -19,6 +21,20 @@
             <td>&nbsp<%=data.id %></td>
             <td>&nbsp<%=data.name%></td>
             <td>&nbsp<%=data.kota%></td>
+            <%if(data.items==null) {%>
+              <td>Unsign</td>
+            <%} else { %>
+              <td>
+            <%
+              data.items.forEach(item=>{
+            %>
+                  <%=item.name+' @ '+item.SupplierItem.price%> </br>
+            <%
+              })
+            %>
+            </td>
+            <% }%>
+            <td><a href="/suppliers/edit/<%= data.id %>">Edit</a></td>
             <td><a href="/suppliers/edit/<%= data.id %>">Edit</a>|<a href="/suppliers/delete/<%= data.id %>">Delete</a></td>
           </tr>
           <% }) %>
