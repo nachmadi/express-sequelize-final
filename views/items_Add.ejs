@@ -1,0 +1,29 @@
+<html>
+<%- include partial/header %>
+<body>
+  <%-include partial/menu%>
+  <div class="container">
+      <h2>Tambah Item</h2>
+      <h3><a href="/items">Show All Data</a></h3>
+      <%if(err){  %>
+        <div id="info"><%=error%></div>
+      <%} %>
+        <form action="/items/add" method="post">
+          <div>
+            <label><b>Nama Item<b></label><br>
+            <input type="text" name="name" placeholder="Nama Item">
+          </div>
+          <div>
+            <label><b>Brand<b></label><br>
+            <input type="text" name="brand" placeholder="Brand">
+          </div>
+          <div>
+            <label><b>Code Item<b></label><br>
+            <input type="text" name="codeitem" placeholder="Code Item">
+          </div>
+
+          <button type="submit" name="submit">Add</button>
+      </form>
+  </div>
+</body>
+</html>

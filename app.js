@@ -5,7 +5,7 @@ var session = require('express-session');
 var md5 = require('md5');
 var utility = require('./helper/util.js');
 
-//var routerItem = require('./router/items.js');
+var routerItem = require('./router/items.js');
 var routerSupplier = require('./router/suppliers.js');
 //var barang = require('./router/barangs.js');
 //var report = require('./router/reports.js');
@@ -28,7 +28,7 @@ app.get('/',(req,res)=>{
 })
 
 
-//app.use('/items', routerItem);
+app.use('/items', routerItem);
 app.use('/suppliers', routerSupplier);
 //app.use('/reports', report);
 

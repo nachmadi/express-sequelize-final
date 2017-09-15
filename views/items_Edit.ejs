@@ -1,0 +1,29 @@
+<html>
+<%- include partial/header %>
+<body>
+  <%-include partial/menu%>
+  <div class="container">
+      <h2>Tambah Item</h2>
+      <h3><a href="/items">Show All Data</a></h3>
+      <!-- name
+      brand
+      codeitem -->
+          <form action="/items/edit/<%=item.id%>" method="post">
+          <div>
+            <label><b>Nama supplier<b></label><br>
+            <input type="text" name="name" value= "<%=item.name%>" placeholder="Nama Item">
+          </div>
+          <div>
+            <label><b>Brand<b></label><br>
+            <input type="text" name="brand" value= "<%=item.brand%>" placeholder="Brand">
+          </div>
+          <div>
+            <label><b>Code Item<b></label><br>
+            <input type="text" name="codeitem" value= "<%=item.codeitem%>" placeholder="Code Item">
+          </div>
+
+          <button type="submit" name="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

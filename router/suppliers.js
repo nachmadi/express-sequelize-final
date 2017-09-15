@@ -3,8 +3,41 @@ let router = express.Router();
 
 let models = require('../models');
 
+
+router.get('/inst',(req, res)=>{
+   models.SupplierItem.create(
+        {SupplierId:1,
+         itemId: 1,
+         price: 20}
+       )
+      .then(allSupplier => {
+       res.send({students:allSupplier});
+    })
+
+});
+
+router.get('/test',(req, res)=>{
+   models.Suppliers.findAll({include:[{
+            // through akan menghasilkan query INNER JOIN
+             model: models.item
+             ,
+             through:'SupplierItem'
+         }]
+      })
+      .then(allSupplier => {
+       res.send({students:allSupplier});
+    })
+
+});
+
 router.get('/',(req, res)=>{
-   models.Suppliers.all()
+   models.Suppliers.all({include:[{
+            // through akan menghasilkan query INNER JOIN
+             model: models.item
+             ,
+             through:'SupplierItem'
+         }]
+      })
       .then(allSupplier => {
        //res.send({students:allStudents});
       res.render('suppliers',{suppliers:allSupplier});
@@ -56,7 +89,7 @@ router.post('/edit/:id',(req, res)=>{
     {where: { id: req.params.id} }
   )
   .then(result=>{
-    res.redirect('/supplier');
+    res.redirect('/suppliers');
   })
   .catch(err=>{
     res.send({error:error.stack});

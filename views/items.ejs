@@ -4,22 +4,25 @@
 <body>
   <%-include partial/menu%>
   <div class="container">
-      <h2>Suppliers Data</h2>
-      <h3><a href='/suppliers/add'>Add Suppliers</a><h3>
+      <h2>Items Data</h2>
+      <h3><a href='/items/add'>Add Item</a><h3>
       <table class="table" cellpading="0" cellspacing="0">
         <tr>
+
           <th>ID</th>
-          <th>NAMA</th>
-          <th>KOTA</th>
+          <th>NAME</th>
+          <th>BRAND</th>
+          <th>CODE ITEM</th>
           <th>Option</th>
         </tr>
 
-        <% suppliers.forEach (data =>{%>
+        <% items.forEach (data =>{%>
           <tr>
             <td>&nbsp<%=data.id %></td>
             <td>&nbsp<%=data.name%></td>
-            <td>&nbsp<%=data.kota%></td>
-            <td><a href="/suppliers/edit/<%= data.id %>">Edit</a>|<a href="/suppliers/delete/<%= data.id %>">Delete</a></td>
+            <td>&nbsp<%=data.brand%></td>
+            <td>&nbsp<%=data.codeitem%></td>
+            <td><a href="/items/edit/<%= data.id %>">Edit</a>|<a href="/items/delete/<%= data.id %>">Delete</a></td>
           </tr>
           <% }) %>
       </table>
